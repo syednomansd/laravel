@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/login', function () {
+    return view('register.login');
+});
+
+Route::get('/sign-up', function () {
+    return view('register.signup');
+});
+
+Route::get('/user-dashboard', function () {
+    return view('user.dashboard');
 });
