@@ -12,17 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
 
-Route::get('/login', function () {
-    return view('register.login');
-});
+Auth::routes();
 
-Route::get('/sign-up', function () {
-    return view('register.signup');
-});
+Route::get('/home', 'HomeController@index');
 
-Route::get('/user-dashboard', function () {
-    return view('user.dashboard');
+Route::group(['middleware' => ['web']], function(){
+	Route::resource('blog', 'BlogController');
 });
